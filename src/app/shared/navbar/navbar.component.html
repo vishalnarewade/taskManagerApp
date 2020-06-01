@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg position-fixed toolbar bg-white w-100 border-bottom">
+  <div role="banner" class="navbar-brand">
+    <i class="fa fa-book-reader text-white rounded-circle mr-5 p-2 bg-summer-sky"></i>
+    <span class="summer-sky-color">{{title}}</span>
+  </div>
+
+  <button class="btn btn-primary" type="button" data-toggle="collapse" aria-controls="navbarCollapse"
+    aria-expanded="false" aria-label="Toggle navigation" (click)="isShown = !isShown">
+    <i class="fa fa-bars"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': isShown }">
+    <div class="mr-auto"></div>
+    <ul class="navbar-nav text-primary">
+      <li class="summer-sky-color">
+        <span *ngIf="userService.loggedUser" class="mr-2">{{userService.loggedUser.name}}</span>
+        <i class="fa fa-user-circle mr-2 text-black-50" style="font-size: 1.3em;"></i>
+      </li>
+      <li
+        data-toggle="collapse"
+        href="#notifiyToggle"
+        aria-expanded="false"
+        aria-controls="notifiyToggle"
+        class="position-relative"
+      >
+        <i class="fa fa-bell text-black-50" style="font-size: 1.2em;"></i>
+        <div class="collapse position-absolute" id="notifiyToggle">
+          <div class="card card-body p-0">
+            <app-notification></app-notification> 
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- <ul class="navbar-nav mr-auto text-primary" >
+      <li
+        class="nav-item mr-2"
+        *ngFor="let data of list"
+      >
+         <a
+           (click)="redirect(data)"
+           class="nav-link pointer"
+           [ngClass]="{'active': activeTab === data }"
+          > {{data}} </a>
+       </li>
+    </ul> -->
+  </div> 
+</nav>

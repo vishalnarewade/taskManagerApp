@@ -1,0 +1,20 @@
+<div class="login">
+  <div class="background-transform"></div>
+  <form [formGroup]="form" class="form-signin" (ngSubmit)="submit()">
+
+    <h1 class="text-left mb-5">Login</h1>
+
+    <input type="text" class="form-control mb-3" placeholder="Enter Username" formControlName="name" required autofocus>
+    <input type="password" class="form-control" placeholder="Enter Password" formControlName="pass" required>
+
+    <div class="text-left mt-4 mb-5">
+      <button class="btn btn-primary mr-3" type="submit" [disabled]="!form.valid">
+        Login
+      </button>
+      <button class="btn" type="button" routerLink="/register">
+        Registration
+      </button>
+    </div>
+
+  </form>
+</div>

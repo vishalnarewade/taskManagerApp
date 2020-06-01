@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "task-management"
+    }
+  },
+  "defaultProject": "task-management",
+  "cli": {
+    "analytics": "99434bdf-8289-480c-a083-48be407f9151"
+  }
 }

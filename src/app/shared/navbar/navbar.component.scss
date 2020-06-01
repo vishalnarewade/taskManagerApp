@@ -1,0 +1,38 @@
+.toolbar {
+  top: 0;
+  left: 0;
+  z-index: 99;
+
+  img {
+    margin: 0 4px 0 0;
+   }
+
+   span {
+    font-weight: 600;
+   }
+
+   .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-transform: capitalize;
+   }
+
+   .active, .nav-link:hover {
+     background-color: #007bff;
+     color: #fff;
+     border-radius: 5px;
+   }
+
+   #notifiyToggle {
+     top: 48px;
+     right: 0;
+     width: 400px;
+   }
+ }
+ 
+
+@media only screen  and (min-width: 992px) {
+  .main .btn {
+    display: none;
+  }
+}

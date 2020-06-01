@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-12">
+    <div class="side-bar bg-white position-fixed border-right">
+      <ul class="list-group">
+        <li class="list-group-item border-0 summer-sky-color p-3">
+          <i class="fa fa-tasks" style="font-size: 1.3em;"></i>
+        </li>
+      </ul>
+    </div>
+    <div style="margin-left: 62px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <ul class="list-group">
+              <li class="border-left-0 border-right-0 border-top-0 list-group-item list-header">
+                <div class="row">
+                  <div class="col-0 col-sm-8"></div>
+                  <div class="col-6 col-sm-2 text-uppercase">
+                    updated
+                  </div>
+                  <div class="col-6 col-sm-2 text-center text-uppercase">
+                    assignee
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item" *ngFor="let list of taskData">
+                <div class="row">
+                  <div class="col-12 col-sm-8">
+                    <i
+                      class="fa fa-check mr-2 pointer"
+                      [ngClass]="{'text-success': list.checked, 'light-color': !list.checked}"
+                      (click)="list.checked = !list.checked"></i>
+                    {{list.task}}
+
+                    <span class="ml-1 light-color"> 
+                      <i class="fa fa-link ml-1" *ngIf="list.attachment"></i>
+                      <i class="fas fa-stream ml-1"></i>
+                      <i class="fa fa-sync-alt ml-1" *ngIf="list.refresh"></i>
+                    </span>
+
+                    <span *ngIf="list.count" class="border ml-1 p-1" style="font-size: 0.8em;">{{list.count}}</span>
+                  </div>
+                  <div class="col-6 col-sm-2">
+                    {{list.updated | date: 'MMM dd'}}
+                  </div>
+                  <div class="col-6 col-sm-2 text-center">
+                    <span
+                      *ngIf="list.assignee" 
+                      class="rounded-circle text-white bg-violet"
+                      style="font-size: 14px;padding: 7px 5px;"
+                    >AS</span>
+      
+                    <span *ngIf="!list.assignee">
+                      <i class="fa fa-user-plus p-1 text-muted"></i>
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li class="border-0 list-group-item list-header">
+                <div class="row">
+                  <div class="col-12">
+                    <i class="fa fa-plus mr-3 pointer light-color"></i>
+                    <input
+                      type="text"
+                      class="form-control w-75"
+                      [(ngModel)]="newTask"
+                      placeholder="Create new task"
+                      (keyup)="submit($event)"
+                      style="display: inline;"
+                    />
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
